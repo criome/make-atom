@@ -1,0 +1,29 @@
+{
+  "pins": {
+    "horizons-rs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "criome",
+        "repo": "horizons-rs"
+      },
+      "branch": "main",
+      "revision": "4a34ef47963732e654cb2bf9c7050c2ad575dab3",
+      "url": "https://github.com/criome/horizons-rs/archive/4a34ef47963732e654cb2bf9c7050c2ad575dab3.tar.gz",
+      "hash": "067jbkf6xsqddxgh7060i90rivzyd44wp0diffadiygkmarpl7c8"
+    },
+    "rust-atom": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "criome",
+        "repo": "rust-atom"
+      },
+      "branch": "main",
+      "revision": "50acc9ec1046e5d39a25a5f8750d4ebba820162e",
+      "url": "https://github.com/criome/rust-atom/archive/50acc9ec1046e5d39a25a5f8750d4ebba820162e.tar.gz",
+      "hash": "0q8qmimbs50js6gknbkk12ahnqpz68vw8598x32hss5s4rcqfskr"
+    }
+  },
+  "version": 3
+}

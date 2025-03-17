@@ -1,0 +1,14 @@
+[atom]
+id = "make-atom"
+version = "0.1.0"
+
+[backend.nix]
+fetcher = "flake-lock"
+
+[fetch.core]
+name = "atom"
+type = "import"
+
+[fetch.args]
+name = "args"
+type = "local"
