@@ -1,12 +1,8 @@
 {
   description = "make-atom";
 
-  inputs = {
-    modified-atom.url = "github:LiGoldragon/atom/atomicFlake-v1";
-
-    atom.url = "github:ekala-project/atom";
-    atom.flake = false;
+  outputs = inputs: {
+    mkAtom = import ./default.nix;
+    tests = import ./tests.nix;
   };
-
-  outputs = inputs: inputs.modified-atom.mkAtomicFlake inputs (./. + "/make-atom@.toml");
 }

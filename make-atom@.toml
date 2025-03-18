@@ -1,14 +1,42 @@
 [atom]
 id = "make-atom"
 version = "0.1.0"
+system = true
+
+[features]
+default = ["lib"]
 
 [backend.nix]
 fetcher = "flake-lock"
 
 [fetch.core]
 name = "atom"
-type = "import"
+type = "src"
+
+[fetch.mkAtom]
+name = "mkAtom"
+type = "src"
 
 [fetch.args]
 name = "args"
-type = "local"
+type = "src"
+
+[fetch.system]
+name = "system"
+type = "src"
+
+[fetch.registry]
+name = "registry"
+type = "src"
+
+[fetch.unsafeImport]
+name = "unsafeImport"
+type = "src"
+
+[fetch.flake-inputs]
+name = "flake-inputs"
+type = "src"
+
+[fetch.flake-compat]
+name = "flake-compat"
+type = "src"

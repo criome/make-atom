@@ -1,5 +1,17 @@
 {
   "pins": {
+    "devenv-atom": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "criome",
+        "repo": "devenv-atom"
+      },
+      "branch": "main",
+      "revision": "d2d9d5d062264b96cf9ecae8743524e07431ac77",
+      "url": "https://github.com/criome/devenv-atom/archive/d2d9d5d062264b96cf9ecae8743524e07431ac77.tar.gz",
+      "hash": "04q6ms6g7v4yq66lrcn33chcvczp8dacqd221x072bg8k16nhx63"
+    },
     "horizons-rs": {
       "type": "Git",
       "repository": {
