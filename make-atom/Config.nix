@@ -25,9 +25,9 @@ let
       hasIdAndVersion = hasAttr "id" data.atom && hasAttr "version" data.atom;
       looksLikeManifest = hasAttr "atom" data && hasIdAndVersion;
     in
-    if looksLikeManifest then data else "";
+    if looksLikeManifest then [ data ] else [ ];
 
-  manifests = map mkFilterCandidate candidates;
+  manifests = std.concatMap mkFilterCandidate candidates;
 
   hasSingleManifest = (std.length manifests) == 1;
 
