@@ -39,5 +39,18 @@ let
       Source is: ${atom.root}
   '' firstManifest;
 
+  foundManifest = if hasSingleManifest then firstManifest else firstManifestWithWarning;
+
+  hasAtomName = std.hasAttr "atomName" get.args;
+  manifestName = get.args.atomName + "@.toml";
+  filteredNamedManifest = mkFilterCandidate manifestName;
+
+  namedManifestExists = std.pathExists "${atom.root}/${manifestName}" && filteredNamedManifest != [ ];
+
+  missingNamedManifestError = throw "The source is missing or has an invalid atom manifest: ${manifestName}";
+
+  namedManifest =
+    if namedManifestExists then (std.head filteredNamedManifest) else missingNamedManifestError;
+
 in
-if hasSingleManifest then firstManifest else firstManifestWithWarning
+if hasAtomName then namedManifest else foundManifest
