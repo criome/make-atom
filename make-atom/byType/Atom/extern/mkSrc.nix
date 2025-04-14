@@ -1,1 +1,1 @@
-depName: depConfig: get.registry.combined.${depConfig.name or depName}
+depName: depConfig: atom.registry.combined.${depConfig.name or depName}
