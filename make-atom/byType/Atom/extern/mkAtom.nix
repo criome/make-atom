@@ -1,10 +1,9 @@
 inputName: inputConfig:
 let
-  inherit (atom) system config registry;
-
   name = inputConfig.name or inputName;
   type = inputConfig.type or "atom";
-  src = if type == "local" then root else registry.combined.${name};
+
+  src = if type == "local" then root else atom.registry.combined.${name};
 
   # TODO this will obviously evolve
   manifestFileName = "${name}@.toml";
@@ -16,11 +15,16 @@ let
   optionalOverrides = if depHasInputOverrides then overrideInputs else { };
   optionalInputs = if propagate then inputs else optionalOverrides;
 
-  args = {
+  baseArgs = {
     atomSrc = src;
     # TODO
     # inputs = optionalInputs;
   };
 
+  optionalArgs = lib.optionalArgs hasName { atomName = inputConfig.name; };
+
 in
-get.mkAtom { inherit args system; }
+get.mkAtom {
+  inherit (atom) system;
+  args = baseArgs // optionalArgs;
+}
