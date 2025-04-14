@@ -1,8 +1,9 @@
 let
   universal = get.registry.universal or { };
   parent = get.registry.parent or { };
+  local = localFromNixBackend // (get.registry.local or { });
 
-  local = if (backendNixFetcher != null) then backendNixFetcherRegistry else { };
+  localFromNixBackend = if (backendNixFetcher != null) then backendNixFetcherRegistry else { };
 
   backendNixFetcher = atom.config.backend.nix.fetcher or null;
 
