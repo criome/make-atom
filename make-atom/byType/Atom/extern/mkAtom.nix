@@ -1,11 +1,10 @@
 inputName: inputConfig:
 let
-  inherit (pre) inputs;
-  inherit (atom) system config;
+  inherit (atom) system config registry;
 
   name = inputConfig.name or inputName;
   type = inputConfig.type or "atom";
-  src = if type == "local" then root else inputs.${name};
+  src = if type == "local" then root else registry.combined.${name};
 
   # TODO this will obviously evolve
   manifestFileName = "${name}@.toml";
@@ -19,7 +18,8 @@ let
 
   args = {
     atomSrc = src;
-    inputs = optionalInputs;
+    # TODO
+    # inputs = optionalInputs;
   };
 
 in

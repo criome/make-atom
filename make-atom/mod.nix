@@ -4,7 +4,7 @@
   # TODO
   Type = get.args.type or mod.guessType;
 
-  Root = get.core.prepDir get.args.atomSrc.outPath;
+  Root = get.core.prepDir mod.src;
 
   System = get.system or null;
 

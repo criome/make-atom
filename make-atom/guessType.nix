@@ -8,7 +8,7 @@ let
   hasTwoAttrs = 2 == numberOfAttrs;
   hasTwoOrThreeAttrs = hasTwoAttrs || numberOfAttrs == 3;
 
-  looksLikeAtom = hasTwoOrThreeAttrs && hasAtomSrc;
+  looksLikeAtom = hasAttr "atomSrc" get.args;
 
   looksLikeSource = hasSingleAttr && hasAttr "src" get.args;
 
