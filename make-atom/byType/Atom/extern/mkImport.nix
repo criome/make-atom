@@ -20,4 +20,4 @@ let
   importedSrcWithArgs = builtins.foldl' applyNextArg (import pathToImport) depArgs;
 
 in
-if hasArgs then importedSrcWithArgs else import pathToImport
+if hasArgs then importedSrcWithArgs else get.unsafeImport pathToImport

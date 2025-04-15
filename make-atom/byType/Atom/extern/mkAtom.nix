@@ -2,13 +2,15 @@ inputName: inputConfig:
 let
   name = inputConfig.name or inputName;
   type = inputConfig.type or "atom";
+  hasName = std.hasAttr "name" inputConfig;
 
-  src = if type == "local" then root else atom.registry.combined.${name};
+  src = if type == "local" then atom.root else atom.registry.combined.${name};
 
   # TODO this will obviously evolve
   manifestFileName = "${name}@.toml";
   manifest = "${src}/${manifestFileName}";
 
+  # TODO
   overrides = inputConfig.inputOverrides or [ ];
   depHasInputOverrides = overrides != [ ];
   overrideInputs = builtins.getAttrs overrides inputs;
@@ -21,7 +23,7 @@ let
     # inputs = optionalInputs;
   };
 
-  optionalArgs = lib.optionalArgs hasName { atomName = inputConfig.name; };
+  optionalArgs = lib.optionalAttrs hasName { atomName = inputConfig.name; };
 
 in
 get.mkAtom {
