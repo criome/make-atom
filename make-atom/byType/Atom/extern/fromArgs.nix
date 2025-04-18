@@ -2,8 +2,7 @@ let
   mkExplicitInput =
     name: args:
     get.mkAtom {
-      inherit args registry;
-      inherit (atom) system;
+      inherit args registry system;
       parent-registry = atom.local-registry;
     };
 

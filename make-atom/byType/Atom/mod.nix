@@ -8,9 +8,9 @@
 
   Value = get.core.compose {
     # TODO stdFeatures, etc
-    inherit (atom) root system config;
+    inherit (atom) root config;
     inherit (mod) features;
-    inherit registry;
+    inherit system registry;
     src = atom.config.atom.src or atom.config.atom.id;
     extern = mod.extern.value;
   };

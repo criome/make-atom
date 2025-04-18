@@ -5,7 +5,7 @@ let
   entryPath = input + "/pkgs/top-level";
 
   importedPkgs = get.unsafeImport entryPath {
-    localSystem = { inherit (atom) system; };
+    localSystem = { inherit system; };
   };
 
 in

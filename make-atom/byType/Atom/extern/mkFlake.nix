@@ -1,9 +1,10 @@
 # TODO overrides
 depName: depConfig:
 let
+  src = atom.registry.${depConfig.name or depName};
+
   flakeCompatResult = get.flake-compat {
-    src = atom.registry.${depConfig.name or depName};
-    inherit (get) system;
+    inherit system src;
   };
 
 in
