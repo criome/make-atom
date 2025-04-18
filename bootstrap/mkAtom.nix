@@ -9,14 +9,14 @@ let
   evaluation = mkUnsafeAtom {
     src = ../.;
     config = core.readToml (../. + "/make-atom@.toml");
-    inputs = {
+    inherit registry;
+    extern = {
       inherit
         args
         core
         lib
         mkAtom
         system
-        registry
         unsafeImport
         flake-inputs
         flake-compat

@@ -7,10 +7,10 @@
         "owner": "LiGoldragon",
         "repo": "atom"
       },
-      "branch": "atomicFlake-v1",
-      "revision": "4ec32cb657b15f82a2646ab184ad53ed78c2aa11",
-      "url": "https://github.com/LiGoldragon/atom/archive/4ec32cb657b15f82a2646ab184ad53ed78c2aa11.tar.gz",
-      "hash": "17s7gjss0l6b2cpcghji7wbj1zx0limfi1jc2mgz0g7qwa9fc0yn"
+      "branch": "testing",
+      "revision": "c1f5fd3ee4c188725b2ee1f3513393ed526291d6",
+      "url": "https://github.com/LiGoldragon/atom/archive/c1f5fd3ee4c188725b2ee1f3513393ed526291d6.tar.gz",
+      "hash": "0sxmcjrrlyc156jh759x6v28jn8xs2hn114dpggvm07d660ggfgg"
     },
     "flake-compat": {
       "type": "Git",

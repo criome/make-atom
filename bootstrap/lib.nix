@@ -11,4 +11,17 @@ rec {
   flake-compat = import npins.flake-compat;
 
   mkUnsafeAtom = scopedImport { inherit core; } ./mkUnsafeAtom.nix;
+
+  mkAtomScope = {
+    inherit
+      mkAtom
+      core
+      lib
+      mkUnsafeAtom
+      flake-inputs
+      flake-compat
+      ;
+  };
+
+  mkAtom = scopedImport mkAtomScope ./mkAtom.nix;
 }
