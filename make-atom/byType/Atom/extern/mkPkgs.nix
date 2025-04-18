@@ -1,7 +1,7 @@
 depName: depConfig:
 let
   name = depConfig.name or depName;
-  input = atom.registry.combined.${name};
+  input = atom.registry.${name};
   entryPath = input + "/pkgs/top-level";
 
   importedPkgs = get.unsafeImport entryPath {

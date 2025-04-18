@@ -1,7 +1,7 @@
 depName: depConfig:
 let
   name = depConfig.name or depName;
-  src = atom.registry.combined.${name};
+  src = atom.registry.${name};
   extern = mod.value;
   subdir = depConfig.subdir or null;
   hasSubdir = subdir != null;

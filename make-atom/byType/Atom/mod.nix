@@ -10,6 +10,7 @@
     # TODO stdFeatures, etc
     inherit (atom) root system config;
     inherit (mod) features;
+    inherit registry;
     src = atom.config.atom.src or atom.config.atom.id;
     extern = mod.extern.value;
   };

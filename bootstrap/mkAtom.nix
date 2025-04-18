@@ -2,6 +2,8 @@
   args,
   system ? null,
   registry ? { },
+  local-registry ? { },
+  parent-registry ? { },
 }:
 let
   unsafeImport = builtins.import;
@@ -20,6 +22,8 @@ let
         unsafeImport
         flake-inputs
         flake-compat
+        local-registry
+        parent-registry
         ;
     };
   };

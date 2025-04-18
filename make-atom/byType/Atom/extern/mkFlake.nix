@@ -2,7 +2,7 @@
 depName: depConfig:
 let
   flakeCompatResult = get.flake-compat {
-    src = atom.registry.combined.${depConfig.name or depName};
+    src = atom.registry.${depConfig.name or depName};
     inherit (get) system;
   };
 
