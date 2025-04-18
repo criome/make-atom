@@ -2,7 +2,9 @@
   description = "make-atom";
 
   outputs = inputs: {
-    mkAtom = import ./default.nix;
+    mkAtom = args: import ./default.nix (args // { _calledFromFlake = true; });
+
     tests = import ./tests.nix;
+
   };
 }

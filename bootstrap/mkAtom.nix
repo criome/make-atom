@@ -4,6 +4,7 @@
   registry ? { },
   local-registry ? { },
   parent-registry ? { },
+  _calledFromFlake ? false,
 }:
 let
   unsafeImport = builtins.import;
@@ -23,6 +24,7 @@ let
         flake-compat
         local-registry
         parent-registry
+        _calledFromFlake
         ;
     };
   };

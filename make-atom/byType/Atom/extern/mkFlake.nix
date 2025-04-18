@@ -7,5 +7,10 @@ let
     inherit system src;
   };
 
+  flakeCompatFlake = flakeCompatResult.defaultNix;
+
+  inputIsFlake = src._type == "flake";
+  possiblyRawFlake = if inputIsFlake then src else flakeCompatFlake;
+
 in
-flakeCompatResult.defaultNix
+if get._calledFromFlake then possiblyRawFlake else flakeCompatFlake
