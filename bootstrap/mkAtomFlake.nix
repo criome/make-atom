@@ -1,6 +1,6 @@
 atomSrc: inputs:
 
-(import ./lib.nix).mkAtom {
+(import ./mkLib.nix).mkAtom {
   args = { inherit atomSrc; };
 
   system = inputs.system.value;

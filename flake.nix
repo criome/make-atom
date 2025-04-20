@@ -1,12 +1,42 @@
 {
   description = "mkAtom";
 
-  outputs = inputs: {
-    mkAtom = args: import ./default.nix (args // { _calledFromFlake = true; });
-
-    mkAtomFlake = import ./bootstrap/mkAtomFlake.nix;
-
-    tests = import ./tests.nix;
-
+  inputs = {
+    atom.url = "github:LiGoldragon/atom/testing";
+    lib.url = "github:nix-community/nixpkgs.lib";
+    flake-compat.url = "github:edolstra/flake-compat";
   };
+
+  outputs =
+    inputs:
+    let
+      bootstrap = import ./bootstrap/mkLib.nix {
+        inherit (inputs.lib) lib;
+        atomCore = inputs.atom.core;
+        flake-compat = import inputs.flake-compat;
+      };
+
+      defaultMkAtom = bootstrap.mkAtom;
+
+    in
+    {
+      mkAtom = args: defaultMkAtom (args // { _calledFromFlake = true; });
+
+      mkAtomFlake =
+        atomSrc: inputs:
+        defaultMkAtom {
+          args = { inherit atomSrc; };
+          system = inputs.system.value;
+          _calledFromFlake = true;
+          local-registry = (
+            removeAttrs inputs [
+              "self"
+              "system"
+              "make-atom"
+            ]
+          );
+        };
+
+      tests = import ./tests.nix;
+    };
 }

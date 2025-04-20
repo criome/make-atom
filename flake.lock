@@ -1,0 +1,59 @@
+{
+  "nodes": {
+    "atom": {
+      "locked": {
+        "lastModified": 1745164850,
+        "narHash": "sha256-dnO3DyqHwNRoKIMwkYlFm17j6pEjKKvnqZZiP2yUC5Q=",
+        "owner": "LiGoldragon",
+        "repo": "atom",
+        "rev": "ca2ddcb043728f2709e50417dd268cf4b4485ccd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LiGoldragon",
+        "ref": "testing",
+        "repo": "atom",
+        "type": "github"
+      }
+    },
+    "flake-compat": {
+      "locked": {
+        "lastModified": 1733328505,
+        "narHash": "sha256-NeCCThCEP3eCl2l/+27kNNK7QrwZB1IJCrXfrbv5oqU=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "ff81ac966bb2cae68946d5ed5fc4994f96d0ffec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "lib": {
+      "locked": {
+        "lastModified": 1745111456,
+        "narHash": "sha256-6k3oWdGcWOIzh3OQBkIf+HBU+xH5vbZtUhwzXEX4NWI=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "eab2ba94b72a8664e0fb92912160151d99db850e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "atom": "atom",
+        "flake-compat": "flake-compat",
+        "lib": "lib"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

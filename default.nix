@@ -1,1 +1,1 @@
-(import ./bootstrap/lib.nix).mkAtom
+(import ./bootstrap/mkLib.nix { }).mkAtom

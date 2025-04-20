@@ -2,6 +2,7 @@
 id = "make-atom"
 version = "0.1.0"
 system = true
+registry = true
 
 [features]
 default = ["lib"]
