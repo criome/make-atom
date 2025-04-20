@@ -1,12 +1,11 @@
 let
-  mkAtom = import ./default.nix;
-  deps = import ./bootstrap/deps.nix;
-  inherit (deps) lib;
+  bootstrap = import ../bootstrap/mkLib.nix { };
+  inherit (bootstrap) lib mkAtom;
 
-  testArgs = deps.mkUnsafeAtom {
+  testArgs = bootstrap.mkUnsafeAtom {
     src = ./.;
     manifest = ./. + "/args@.toml";
-    inputs = { inherit builtins; };
+    extern = { inherit builtins; };
   };
 
   testAtom = mkAtom {

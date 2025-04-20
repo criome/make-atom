@@ -15,6 +15,8 @@ in
 }:
 
 rec {
+  inherit lib;
+
   core = atomCore // import ./core.nix;
 
   mkUnsafeAtom = scopedImport { inherit core; } ./mkUnsafeAtom.nix;
