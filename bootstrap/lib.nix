@@ -10,6 +10,8 @@ rec {
   flake-inputs = import npins.flake-inputs;
   flake-compat = import npins.flake-compat;
 
+  unsafeImport = builtins.import;
+
   mkUnsafeAtom = scopedImport { inherit core; } ./mkUnsafeAtom.nix;
 
   mkAtomScope = {
@@ -17,6 +19,7 @@ rec {
       mkAtom
       core
       lib
+      unsafeImport
       mkUnsafeAtom
       flake-inputs
       flake-compat

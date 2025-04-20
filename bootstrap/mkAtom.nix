@@ -7,8 +7,6 @@
   _calledFromFlake ? false,
 }:
 let
-  unsafeImport = builtins.import;
-
   evaluation = mkUnsafeAtom {
     src = ../.;
     config = core.readToml (../. + "/make-atom@.toml");
