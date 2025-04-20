@@ -15,7 +15,7 @@ in
 }:
 
 rec {
-  inherit lib;
+  inherit lib flake-inputs;
 
   core = atomCore // import ./core.nix;
 

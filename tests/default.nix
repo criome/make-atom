@@ -1,8 +1,8 @@
 let
   bootstrap = import ../bootstrap/mkLib.nix { };
-  inherit (bootstrap) lib mkAtom;
+  inherit (bootstrap) lib mkAtom mkUnsafeAtom;
 
-  testArgs = bootstrap.mkUnsafeAtom {
+  testArgs = mkUnsafeAtom {
     src = ./.;
     manifest = ./. + "/args@.toml";
     extern = { inherit builtins; };
