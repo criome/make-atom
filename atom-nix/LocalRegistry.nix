@@ -23,4 +23,4 @@ let
   backendNixFetcher = atom.config.backend.nix.fetcher or null;
 
 in
-localFromNixBackend // (get.local-registry or { })
+localFromNixBackend // (get.localRegistry or { })

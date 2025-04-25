@@ -3,6 +3,8 @@ id = "make-atom"
 version = "0.1.0"
 system = true
 registry = true
+lib = true
+pkgs = true
 
 [features]
 default = ["lib"]

@@ -7,15 +7,19 @@
   features ? [ ],
   system ? null,
   registry ? { },
+  pkgs ? null,
+  lib ? null,
 }:
 
 core.compose {
   inherit
     config
+    features
     system
     registry
     extern
-    features
+    pkgs
+    lib
     ;
 
   src = directory;

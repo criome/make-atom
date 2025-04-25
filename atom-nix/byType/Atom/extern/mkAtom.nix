@@ -18,7 +18,7 @@ let
 
 in
 get.mkAtom {
-  inherit system registry;
+  inherit system registry pkgs;
   args = baseArgs // optionalArgs;
-  parent-registry = atom.local-registry;
+  parentRegistry = atom.localRegistry;
 }

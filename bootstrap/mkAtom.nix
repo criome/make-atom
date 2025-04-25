@@ -2,29 +2,37 @@
   args,
   system ? null,
   registry ? { },
-  local-registry ? { },
-  parent-registry ? { },
+  localRegistry ? { },
+  parentRegistry ? { },
+  pkgs ? (nixpkgsFn { localSystem.system = system; }),
   _calledFromFlake ? false,
 }:
 let
   config = core.readToml (../. + "/make-atom@.toml");
 
   evaluation = mkUnsafeAtom {
+    inherit
+      config
+      registry
+      system
+      lib
+      pkgs
+      ;
+
     src = ../.;
-    inherit config registry system;
     features = config.features.default;
+
     extern = {
       inherit
         args
         core
-        lib
         mkAtom
         mkUnsafeAtom
         unsafeImport
         flake-inputs
         flake-compat
-        local-registry
-        parent-registry
+        localRegistry
+        parentRegistry
         _calledFromFlake
         ;
     };

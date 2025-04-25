@@ -4,6 +4,7 @@
   inputs = {
     atom.url = "github:LiGoldragon/atom/testing";
     lib.url = "github:nix-community/nixpkgs.lib";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-compat.url = "github:edolstra/flake-compat";
   };
 
@@ -14,6 +15,7 @@
         inherit (inputs.lib) lib;
         atomCore = inputs.atom.core;
         flake-compat = import inputs.flake-compat;
+        nixpkgsFn = import (inputs.nixpkgs + "/pkgs/top-level");
       };
 
       defaultMkAtom = bootstrap.mkAtom;
@@ -23,12 +25,12 @@
       mkAtom = args: defaultMkAtom (args // { _calledFromFlake = true; });
 
       mkAtomFlake =
-        atomSrc: inputs:
+        atomSrc: flakeInputs:
         defaultMkAtom {
           args = { inherit atomSrc; };
-          system = inputs.system.value;
+          system = flakeInputs.system.value;
           _calledFromFlake = true;
-          registry = removeAttrs inputs [
+          registry = removeAttrs flakeInputs [
             "self"
             "system"
             "make-atom"

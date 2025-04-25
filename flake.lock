@@ -2,11 +2,11 @@
   "nodes": {
     "atom": {
       "locked": {
-        "lastModified": 1745164850,
-        "narHash": "sha256-dnO3DyqHwNRoKIMwkYlFm17j6pEjKKvnqZZiP2yUC5Q=",
+        "lastModified": 1745611759,
+        "narHash": "sha256-bXb5J2AXjq8u3wqA5LbTRDaYto9QmHNUH7kJ5ZTGDRI=",
         "owner": "LiGoldragon",
         "repo": "atom",
-        "rev": "ca2ddcb043728f2709e50417dd268cf4b4485ccd",
+        "rev": "5f85c3548627a7806963a757bcd24aa58824e5fb",
         "type": "github"
       },
       "original": {
@@ -46,11 +46,28 @@
         "type": "github"
       }
     },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1734649271,
+        "narHash": "sha256-4EVBRhOjMDuGtMaofAIqzJbg4Ql7Ai0PSeuVZTHjyKQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d70bd19e0a38ad4790d3913bf08fcbfc9eeca507",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "atom": "atom",
         "flake-compat": "flake-compat",
-        "lib": "lib"
+        "lib": "lib",
+        "nixpkgs": "nixpkgs"
       }
     }
   },

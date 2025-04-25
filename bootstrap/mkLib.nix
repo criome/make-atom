@@ -2,16 +2,18 @@ let
   npins = import ../npins;
   flake-inputs = import npins.flake-inputs;
   lockInputs = flake-inputs { root = ../.; };
-  libFromFlakeLock = import (lockInputs.lib + "/lib");
-  atomCoreFromFlakeLock = import lockInputs.atom;
-  flakeCompatFromFlakeLock = import lockInputs.flake-compat;
+  libFromLock = import (lockInputs.lib + "/lib");
+  atomCoreFromLock = import lockInputs.atom;
+  flakeCompatFromLock = import lockInputs.flake-compat;
+  nixpkgsFnFromLock = import (lockInputs.nixpkgs + "/pkgs/top-level");
   unsafeImport = builtins.import;
 in
 
 {
-  lib ? libFromFlakeLock,
-  atomCore ? atomCoreFromFlakeLock,
-  flake-compat ? flakeCompatFromFlakeLock,
+  lib ? libFromLock,
+  atomCore ? atomCoreFromLock,
+  flake-compat ? flakeCompatFromLock,
+  nixpkgsFn ? nixpkgsFnFromLock,
 }:
 
 rec {
@@ -26,6 +28,7 @@ rec {
       mkAtom
       core
       lib
+      nixpkgsFn
       unsafeImport
       mkUnsafeAtom
       flake-inputs

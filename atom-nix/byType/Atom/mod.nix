@@ -7,10 +7,15 @@
     get.core.features.resolve featSet default;
 
   Value = get.mkUnsafeAtom {
-    src = atom.root;
+    inherit
+      system
+      registry
+      pkgs
+      lib
+      ;
     inherit (atom) config;
     inherit (mod) features;
-    inherit system registry;
+    src = atom.root;
     extern = mod.extern.value;
   };
 }
