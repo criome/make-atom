@@ -4,6 +4,7 @@
   config ? core.readToml manifest,
   directory ? config.atom.src or "atom-nix",
   extern ? { },
+  features ? [ ],
   system ? null,
   registry ? { },
 }:
@@ -14,8 +15,9 @@ core.compose {
     system
     registry
     extern
+    features
     ;
-  features = config.features.default or [ ];
+
   src = directory;
   root = src;
 }
