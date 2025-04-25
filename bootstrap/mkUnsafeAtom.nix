@@ -2,7 +2,7 @@
   src,
   manifest ? null,
   config ? core.readToml manifest,
-  directory ? config.atom.src or config.atom.id,
+  directory ? config.atom.src or "atom-nix",
   extern ? { },
   system ? null,
   registry ? { },
