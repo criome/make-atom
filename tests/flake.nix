@@ -4,8 +4,8 @@
   inputs = {
     devenv-atom.url = "github:criome/devenv-atom/testing";
     rust-atom.url = "github:criome/rust-atom/testing";
-    horizons-rs.url = "github:criome/horizons-rs";
-    horizons-rs.flake = false;
+    horizon-rs.url = "github:criome/horizon-rs";
+    horizon-rs.flake = false;
   };
 
   outputs =
@@ -22,7 +22,7 @@
           inputs.config = {
             atomSrc = inputs.rust-atom;
             inputs.src = {
-              src = inputs.horizons-rs;
+              src = inputs.horizon-rs;
             };
           };
         };
