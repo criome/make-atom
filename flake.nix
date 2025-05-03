@@ -5,6 +5,7 @@
     atom.url = "github:LiGoldragon/atom/testing";
     lib.url = "github:nix-community/nixpkgs.lib";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    system.url = "github:criome/system";
     flake-compat.url = "github:edolstra/flake-compat";
   };
 
@@ -28,7 +29,7 @@
         atomSrc: flakeInputs:
         defaultMkAtom {
           args = { inherit atomSrc; };
-          system = flakeInputs.system.value;
+          system = flakeInputs.system.value or inputs.system.value;
           _calledFromFlake = true;
           registry = removeAttrs flakeInputs [
             "self"

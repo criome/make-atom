@@ -67,7 +67,23 @@
         "atom": "atom",
         "flake-compat": "flake-compat",
         "lib": "lib",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "system": "system"
+      }
+    },
+    "system": {
+      "locked": {
+        "lastModified": 1741520211,
+        "narHash": "sha256-xHifvvYmRbOeUwQfo3D9mTHbh4oBmhg9iNhNGCuK8fk=",
+        "owner": "criome",
+        "repo": "system",
+        "rev": "ddffaa28acbcf95373bd8ed2d142ec9e6f6becbf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "criome",
+        "repo": "system",
+        "type": "github"
       }
     }
   },
